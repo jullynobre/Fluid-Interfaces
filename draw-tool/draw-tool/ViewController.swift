@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var square: UIView!
     
+    var lastRotation: CGFloat = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,6 +55,47 @@ class ViewController: UIViewController {
     
     @IBAction func didTap(_ sender: Any) {
         square.backgroundColor = randomColor()
+        
+        print("Fui tapeado :D")
+    }
+    
+    @IBAction func didRotate(_ sender: Any) {
+        let gesture: UIRotationGestureRecognizer = sender as! UIRotationGestureRecognizer
+    
+        var originalRotation = CGFloat()
+        
+        if gesture.state == .began {
+            print("sender.rotation: \(gesture.rotation)")
+            // sender.rotation renews everytime the rotation starts
+            // delta value but not absolute value
+            gesture.rotation = lastRotation
+            
+            // the last rotation is the relative rotation value when rotation stopped last time,
+            // which indicates the current rotation
+            originalRotation = gesture.rotation
+            
+        } else if gesture.state == .changed {
+            
+            let newRotation = gesture.rotation + originalRotation
+            gesture.view?.transform = CGAffineTransform(rotationAngle: newRotation)
+            
+        } else if gesture.state == .ended {
+            
+            // Save the last rotation
+            lastRotation = gesture.rotation
+            
+        }
+        
+//        if(gesture.state == .ended){
+//            lastRotation = 0.0;
+//        }
+//
+//        let rotation = 0.0 - (lastRotation - gesture.rotation)
+//        // var point = rotateGesture.location(in: viewRotate)
+//        let currentTrans = gesture.view?.transform
+//        let newTrans = currentTrans!.rotated(by: rotation)
+//        gesture.view?.transform = newTrans
+//        lastRotation = gesture.rotation
     }
     
     func randomColor() -> UIColor {

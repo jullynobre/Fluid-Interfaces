@@ -26,6 +26,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="vYg-v9-aIZ" appends="YES" id="qlS-ce-K3G"/>
                                     <outletCollection property="gestureRecognizers" destination="2z8-sz-Etr" appends="YES" id="z1v-9B-87O"/>
+                                    <outletCollection property="gestureRecognizers" destination="njc-ah-wBV" appends="YES" id="Tku-PK-Vns"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -47,6 +48,11 @@
                         <action selector="didDrag:" destination="BYZ-38-t0r" id="2kr-ot-fFM"/>
                     </connections>
                 </panGestureRecognizer>
+                <rotationGestureRecognizer id="njc-ah-wBV">
+                    <connections>
+                        <action selector="didRotate:" destination="BYZ-38-t0r" id="vek-rC-naP"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
         </scene>
     </scenes>
