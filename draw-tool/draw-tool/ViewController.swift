@@ -10,14 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var pinch: UIPinchGestureRecognizer!
+    @IBOutlet var rotation: UIRotationGestureRecognizer!
+    
     @IBOutlet weak var square: UIView!
     
-    var lastRotation: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //Setando o Delegate
+        pinch.delegate = self
+        rotation.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,8 +33,6 @@ class ViewController: UIViewController {
     
     @IBAction func didDrag(_ sender: Any) {
         let gesture: UIPanGestureRecognizer = sender as! UIPanGestureRecognizer
-        
-        
         switch gesture.state {
 
             case .changed:
@@ -49,54 +51,29 @@ class ViewController: UIViewController {
             default:
                 return
         }
-        
-    
     }
     
     @IBAction func didTap(_ sender: Any) {
         square.backgroundColor = randomColor()
-        
-        print("Fui tapeado :D")
     }
     
     @IBAction func didRotate(_ sender: Any) {
         let gesture: UIRotationGestureRecognizer = sender as! UIRotationGestureRecognizer
     
-        var originalRotation = CGFloat()
+        gesture.view?.transform = (gesture.view?.transform)!.rotated(by: gesture.rotation)
+        gesture.rotation = 0
+
         
-        if gesture.state == .began {
-            print("sender.rotation: \(gesture.rotation)")
-            // sender.rotation renews everytime the rotation starts
-            // delta value but not absolute value
-            gesture.rotation = lastRotation
-            
-            // the last rotation is the relative rotation value when rotation stopped last time,
-            // which indicates the current rotation
-            originalRotation = gesture.rotation
-            
-        } else if gesture.state == .changed {
-            
-            let newRotation = gesture.rotation + originalRotation
-            gesture.view?.transform = CGAffineTransform(rotationAngle: newRotation)
-            
-        } else if gesture.state == .ended {
-            
-            // Save the last rotation
-            lastRotation = gesture.rotation
-            
-        }
-        
-//        if(gesture.state == .ended){
-//            lastRotation = 0.0;
-//        }
-//
-//        let rotation = 0.0 - (lastRotation - gesture.rotation)
-//        // var point = rotateGesture.location(in: viewRotate)
-//        let currentTrans = gesture.view?.transform
-//        let newTrans = currentTrans!.rotated(by: rotation)
-//        gesture.view?.transform = newTrans
-//        lastRotation = gesture.rotation
     }
+    
+    @IBAction func didPinch(_ sender: Any) {
+        let gesture: UIPinchGestureRecognizer = sender as! UIPinchGestureRecognizer
+        
+        gesture.view?.transform = (gesture.view?.transform.scaledBy(x: gesture.scale, y: gesture.scale))!
+        gesture.scale = 1.0
+
+    }
+    
     
     func randomColor() -> UIColor {
         let red = CGFloat(drand48())
@@ -106,5 +83,10 @@ class ViewController: UIViewController {
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
+}
+extension ViewController: UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
 
