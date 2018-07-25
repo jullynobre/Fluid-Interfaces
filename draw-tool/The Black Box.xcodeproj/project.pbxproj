@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BEC90E082108C16B00EEC9AE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BEC90E072108C16B00EEC9AE /* .gitignore */; };
 		BED9E1D121074A7B00CA1471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9E1D021074A7B00CA1471 /* AppDelegate.swift */; };
 		BED9E1D321074A7B00CA1471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9E1D221074A7B00CA1471 /* ViewController.swift */; };
 		BED9E1D621074A7B00CA1471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED9E1D421074A7B00CA1471 /* Main.storyboard */; };
@@ -16,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BEC90E072108C16B00EEC9AE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BED9E1CD21074A7B00CA1471 /* The Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED9E1D021074A7B00CA1471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED9E1D221074A7B00CA1471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +38,6 @@
 		BED9E1C421074A7B00CA1471 = {
 			isa = PBXGroup;
 			children = (
-				BEC90E072108C16B00EEC9AE /* .gitignore */,
 				BED9E1CF21074A7B00CA1471 /* draw-tool */,
 				BED9E1CE21074A7B00CA1471 /* Products */,
 			);
@@ -125,7 +122,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEC90E082108C16B00EEC9AE /* .gitignore in Resources */,
 				BED9E1DB21074A7D00CA1471 /* LaunchScreen.storyboard in Resources */,
 				BED9E1D821074A7D00CA1471 /* Assets.xcassets in Resources */,
 				BED9E1D621074A7B00CA1471 /* Main.storyboard in Resources */,
