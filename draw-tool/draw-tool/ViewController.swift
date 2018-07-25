@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         animator.addBehavior(collision)
         
         let itemBehaviour = UIDynamicItemBehavior(items: [square])
-        itemBehaviour.elasticity = 0.6
+        itemBehaviour.elasticity = 0.4
         animator.addBehavior(itemBehaviour)
     }
 
@@ -54,10 +54,17 @@ class ViewController: UIViewController {
             case .changed:
                 let translation = gesture.translation(in: view)
                 
-                let squareX = gesture.view?.center.x
-                let squareY = gesture.view?.center.y
+                if let view = gesture.view {
+                    let centerX = min(max(translation.x + view.center.x, view.frame.width / 2), self.view.bounds.size.width - view.frame.width / 2)
+                    let centerY = min(max(translation.y + view.center.y, view.frame.height / 2), self.view.bounds.size.height - view.frame.height / 2)
+                    
+                    view.center = CGPoint(x: centerX, y: centerY)
+                }
                 
-                square?.center = CGPoint(x: translation.x + squareX!, y: translation.y + squareY!)
+//                let squareX = gesture.view?.center.x
+//                let squareY = gesture.view?.center.y
+//
+//                square?.center = CGPoint(x: translation.x + squareX!, y: translation.y + squareY!)
                 
                 gesture.setTranslation(CGPoint.zero, in: view)
             case .ended:
