@@ -23,14 +23,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        square.layer.cornerRadius = 75
+        
         //Setando o Delegate
         pinch.delegate = self
         rotation.delegate = self
         
         animator = UIDynamicAnimator(referenceView: view)
         
-        gravit = UIGravityBehavior(items: [square])
-        animator.addBehavior(gravit)
+        //gravit = UIGravityBehavior(items: [square])
+        //animator.addBehavior(gravit)
         
         collision = UICollisionBehavior(items: [square])
         collision.translatesReferenceBoundsIntoBoundary = true
@@ -61,14 +63,26 @@ class ViewController: UIViewController {
                     view.center = CGPoint(x: centerX, y: centerY)
                 }
                 
-//                let squareX = gesture.view?.center.x
-//                let squareY = gesture.view?.center.y
-//
-//                square?.center = CGPoint(x: translation.x + squareX!, y: translation.y + squareY!)
-                
                 gesture.setTranslation(CGPoint.zero, in: view)
+            
             case .ended:
-                print("Gesture has ended")
+            
+                let velocity = gesture.velocity(in: view)
+                let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+                print(velocity)
+                let slideMultiplier = magnitude / 900
+                let sliderFactor = 0.1 * slideMultiplier
+                
+                var finalPoint = CGPoint(x: gesture.view!.center.x + (velocity.x * sliderFactor),
+                                         y: gesture.view!.center.y + (velocity.y * sliderFactor))
+                
+                finalPoint.x = min(max(finalPoint.x,square.frame.width / 2), self.view.bounds.size.width - square.frame.width / 2)
+                finalPoint.y = min(max(finalPoint.y, square.frame.height / 2), self.view.bounds.size.height - square.frame.height / 2)
+                
+                UIView.animate(withDuration: Double(sliderFactor * 2), delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                    gesture.view!.center = finalPoint
+                }, completion: nil)
+            
             default:
                 return
         }
