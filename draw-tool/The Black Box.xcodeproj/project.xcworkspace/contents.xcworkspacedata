@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:draw-tool.xcodeproj">
+      location = "self:/Users/ada2018/Desktop/Fluid-Interfaces/draw-tool/The Black Box.xcodeproj">
    </FileRef>
 </Workspace>

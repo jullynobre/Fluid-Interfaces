@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BED9E1CD21074A7B00CA1471 /* draw-tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "draw-tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED9E1CD21074A7B00CA1471 /* The Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED9E1D021074A7B00CA1471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED9E1D221074A7B00CA1471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BED9E1D521074A7B00CA1471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		BED9E1CE21074A7B00CA1471 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BED9E1CD21074A7B00CA1471 /* draw-tool.app */,
+				BED9E1CD21074A7B00CA1471 /* The Black Box.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BED9E1CC21074A7B00CA1471 /* draw-tool */ = {
+		BED9E1CC21074A7B00CA1471 /* The Black Box */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BED9E1DF21074A7D00CA1471 /* Build configuration list for PBXNativeTarget "draw-tool" */;
+			buildConfigurationList = BED9E1DF21074A7D00CA1471 /* Build configuration list for PBXNativeTarget "The Black Box" */;
 			buildPhases = (
 				BED9E1C921074A7B00CA1471 /* Sources */,
 				BED9E1CA21074A7B00CA1471 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = "draw-tool";
+			name = "The Black Box";
 			productName = "draw-tool";
-			productReference = BED9E1CD21074A7B00CA1471 /* draw-tool.app */;
+			productReference = BED9E1CD21074A7B00CA1471 /* The Black Box.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BED9E1C821074A7B00CA1471 /* Build configuration list for PBXProject "draw-tool" */;
+			buildConfigurationList = BED9E1C821074A7B00CA1471 /* Build configuration list for PBXProject "The Black Box" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BED9E1CC21074A7B00CA1471 /* draw-tool */,
+				BED9E1CC21074A7B00CA1471 /* The Black Box */,
 			);
 		};
 /* End PBXProject section */
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BED9E1C821074A7B00CA1471 /* Build configuration list for PBXProject "draw-tool" */ = {
+		BED9E1C821074A7B00CA1471 /* Build configuration list for PBXProject "The Black Box" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BED9E1DD21074A7D00CA1471 /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BED9E1DF21074A7D00CA1471 /* Build configuration list for PBXNativeTarget "draw-tool" */ = {
+		BED9E1DF21074A7D00CA1471 /* Build configuration list for PBXNativeTarget "The Black Box" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BED9E1E021074A7D00CA1471 /* Debug */,
