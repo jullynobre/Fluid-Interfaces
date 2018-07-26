@@ -12,34 +12,44 @@ class ViewController: UIViewController {
 
     @IBOutlet var pinch: UIPinchGestureRecognizer!
     @IBOutlet var rotation: UIRotationGestureRecognizer!
-    
-    @IBOutlet weak var square: UIView!
+    @IBOutlet weak var cat: UIView!
     
     var animator: UIDynamicAnimator!
     var gravit: UIGravityBehavior!
     var collision: UICollisionBehavior!
     var snap: UISnapBehavior!
     
+    var pitukas = [UIView]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        cat.layer.cornerRadius = 75
         
-        square.layer.cornerRadius = 75
-        
-        //Setando o Delegate
-        pinch.delegate = self
-        rotation.delegate = self
+//        for _ in 0...10{
+//            let pituka = UIView.init(frame: CGRect(x: CGFloat(arc4random_uniform(UInt32(view.frame.width))), y: CGFloat(arc4random_uniform(UInt32(view.frame.height))), width: 30.0, height: 30.0))
+//            
+//            pituka.backgroundColor = UIColor.lightText
+//            pituka.layer.cornerRadius = 15
+//            view.addSubview(pituka)
+//            pitukas.append(pituka)
+//        }
         
         animator = UIDynamicAnimator(referenceView: view)
-        
-        collision = UICollisionBehavior(items: [square])
+        collision = UICollisionBehavior(items: [cat] + pitukas)
         collision.translatesReferenceBoundsIntoBoundary = true
         animator.addBehavior(collision)
         
-        let itemBehaviour = UIDynamicItemBehavior(items: [square])
+        let itemBehaviour = UIDynamicItemBehavior(items: [cat] + pitukas)
         itemBehaviour.elasticity = 0.4
         animator.addBehavior(itemBehaviour)
-    }
+        
+        
+        pinch.delegate = self
+        rotation.delegate = self
+        collision.collisionDelegate = self
 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,31 +57,31 @@ class ViewController: UIViewController {
     
     @IBAction func didDrag(_ sender: Any) {
         let gesture: UIPanGestureRecognizer = sender as! UIPanGestureRecognizer
-        
+
         if gesture.state == .changed {
             let translation = gesture.translation(in: view)
-            
+
             if let view = gesture.view {
                 let centerX = min(max(translation.x + view.center.x, view.frame.width / 2), self.view.bounds.size.width - view.frame.width / 2)
                 let centerY = min(max(translation.y + view.center.y, view.frame.height / 2), self.view.bounds.size.height - view.frame.height / 2)
-                
+
                 view.center = CGPoint(x: centerX, y: centerY)
             }
-            
+
             gesture.setTranslation(CGPoint.zero, in: view)
         } else if gesture.state == .ended {
             let velocity = gesture.velocity(in: view)
             let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-            print(velocity)
+
             let slideMultiplier = magnitude / 900
             let sliderFactor = 0.1 * slideMultiplier
-            
+
             var finalPoint = CGPoint(x: gesture.view!.center.x + (velocity.x * sliderFactor),
                                      y: gesture.view!.center.y + (velocity.y * sliderFactor))
-            
-            finalPoint.x = min(max(finalPoint.x,square.frame.width / 2), self.view.bounds.size.width - square.frame.width / 2)
-            finalPoint.y = min(max(finalPoint.y, square.frame.height / 2), self.view.bounds.size.height - square.frame.height / 2)
-            
+
+            finalPoint.x = min(max(finalPoint.x,cat.frame.width / 2), self.view.bounds.size.width - cat.frame.width / 2)
+            finalPoint.y = min(max(finalPoint.y, cat.frame.height / 2), self.view.bounds.size.height - cat.frame.height / 2)
+
             UIView.animate(withDuration: Double(sliderFactor * 2), delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
                 gesture.view!.center = finalPoint },
                            completion: nil)
@@ -79,7 +89,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTap(_ sender: Any) {
-        square.backgroundColor = randomColor()
+        cat.backgroundColor = randomColor()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -88,7 +98,7 @@ class ViewController: UIViewController {
         }
         
         let touch = touches.first! as UITouch
-        snap = UISnapBehavior(item: square, snapTo: touch.location(in: view))
+        snap = UISnapBehavior(item: cat, snapTo: touch.location(in: view))
         animator.addBehavior(snap)
     }
     
@@ -121,5 +131,14 @@ extension ViewController: UIGestureRecognizerDelegate{
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
+}
+
+extension ViewController: UICollisionBehaviorDelegate{
+    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
+        //let item2View = item2 as! UIView
+        //item2View.removeFromSuperview()
+        print("Cutou a pitukinha")
+    }
+    
 }
 

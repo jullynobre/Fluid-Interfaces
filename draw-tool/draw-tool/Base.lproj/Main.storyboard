@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="draw_tool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="The_Black_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,9 +44,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cat" destination="Ase-6h-NJ9" id="wLe-Ae-bKR"/>
                         <outlet property="pinch" destination="hug-E6-Ocj" id="Kco-va-Qv8"/>
                         <outlet property="rotation" destination="njc-ah-wBV" id="IUh-0V-48J"/>
-                        <outlet property="square" destination="Ase-6h-NJ9" id="wLe-Ae-bKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -55,11 +55,6 @@
                         <action selector="didTap:" destination="BYZ-38-t0r" id="Elh-op-XvS"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="2z8-sz-Etr">
-                    <connections>
-                        <action selector="didDrag:" destination="BYZ-38-t0r" id="2kr-ot-fFM"/>
-                    </connections>
-                </panGestureRecognizer>
                 <rotationGestureRecognizer id="njc-ah-wBV">
                     <connections>
                         <action selector="didRotate:" destination="BYZ-38-t0r" id="vek-rC-naP"/>
@@ -70,6 +65,11 @@
                         <action selector="didPinch:" destination="BYZ-38-t0r" id="9xC-Rj-4JZ"/>
                     </connections>
                 </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="2z8-sz-Etr">
+                    <connections>
+                        <action selector="didDrag:" destination="BYZ-38-t0r" id="2kr-ot-fFM"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
