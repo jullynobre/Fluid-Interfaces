@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FirstViewController: UIViewController {
 
     @IBOutlet var pinch: UIPinchGestureRecognizer!
     @IBOutlet var rotation: UIRotationGestureRecognizer!
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         
 //        for _ in 0...10{
 //            let pituka = UIView.init(frame: CGRect(x: CGFloat(arc4random_uniform(UInt32(view.frame.width))), y: CGFloat(arc4random_uniform(UInt32(view.frame.height))), width: 30.0, height: 30.0))
-//            
+//
 //            pituka.backgroundColor = UIColor.lightText
 //            pituka.layer.cornerRadius = 15
 //            view.addSubview(pituka)
@@ -127,13 +127,13 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UIGestureRecognizerDelegate{
+extension FirstViewController: UIGestureRecognizerDelegate{
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 }
 
-extension ViewController: UICollisionBehaviorDelegate{
+extension FirstViewController: UICollisionBehaviorDelegate{
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
         //let item2View = item2 as! UIView
         //item2View.removeFromSuperview()

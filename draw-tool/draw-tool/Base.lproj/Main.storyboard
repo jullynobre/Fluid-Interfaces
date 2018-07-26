@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DMo-xx-imm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,141 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Collision-->
+        <scene sceneID="Gux-cb-CQ5">
+            <objects>
+                <viewController id="kkW-cs-o0H" customClass="SecondViewController" customModule="The_Black_Box" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6ma-T6-1S4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxe-tn-sx6" userLabel="Cat">
+                                <rect key="frame" x="112" y="258" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="=ˆ.ˆ=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLy-QI-coj">
+                                        <rect key="frame" x="13" y="23" width="125" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.81176470590000005" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fcU-PQ-Xo0" appends="YES" id="iUm-xg-1wC"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fcl-2K-g6w"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Collision" id="TKC-Dz-a4D">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="cat" destination="wxe-tn-sx6" id="DDg-ow-ByN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBp-y0-Vif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fcU-PQ-Xo0">
+                    <connections>
+                        <action selector="didTap:" destination="kkW-cs-o0H" id="U4k-5n-qDz"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-477" y="99"/>
+        </scene>
+        <!--Gesture-->
+        <scene sceneID="O0k-Fo-aKw">
+            <objects>
+                <viewController id="cqB-WZ-86P" customClass="FirstViewController" customModule="The_Black_Box" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NEu-1v-SKo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4y-q3-u1e" userLabel="Cat">
+                                <rect key="frame" x="112" y="258" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="=ˆ.ˆ=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI7-QK-cKy">
+                                        <rect key="frame" x="13" y="23" width="125" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.81176470590000005" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KuZ-7v-XXN" appends="YES" id="smm-pb-U0M"/>
+                                    <outletCollection property="gestureRecognizers" destination="Zie-BO-d4R" appends="YES" id="wZD-2y-DrT"/>
+                                    <outletCollection property="gestureRecognizers" destination="YRb-e9-goQ" appends="YES" id="ntx-Xx-jz6"/>
+                                    <outletCollection property="gestureRecognizers" destination="uJH-fl-5y1" appends="YES" id="eDm-Zg-5bI"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bpp-zw-fms"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Gesture" id="3z3-A9-1Ll">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="cat" destination="U4y-q3-u1e" id="sLJ-cx-4lj"/>
+                        <outlet property="pinch" destination="YRb-e9-goQ" id="bvl-LV-CG5"/>
+                        <outlet property="rotation" destination="KuZ-7v-XXN" id="IPs-7p-wWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M1h-cC-0aZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="KuZ-7v-XXN">
+                    <connections>
+                        <action selector="didRotate:" destination="cqB-WZ-86P" id="AZs-nQ-KAw"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Zie-BO-d4R">
+                    <connections>
+                        <action selector="didDrag:" destination="cqB-WZ-86P" id="OCP-An-Fct"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="YRb-e9-goQ">
+                    <connections>
+                        <action selector="didPinch:" destination="cqB-WZ-86P" id="Ymt-oa-LVY"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <tapGestureRecognizer id="uJH-fl-5y1">
+                    <connections>
+                        <action selector="didTap:" destination="cqB-WZ-86P" id="p4S-F7-Stf"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-477" y="-565"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="x24-xa-RRj">
+            <objects>
+                <tabBarController id="DMo-xx-imm" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N0P-Js-yMm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cqB-WZ-86P" kind="relationship" relationship="viewControllers" id="y81-md-gcS"/>
+                        <segue destination="kkW-cs-o0H" kind="relationship" relationship="viewControllers" id="F6I-mC-Sia"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZlE-40-fBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1431" y="-234"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="The_Black_Box" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +202,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
+            <point key="canvasLocation" x="335" y="-36"/>
         </scene>
     </scenes>
 </document>
