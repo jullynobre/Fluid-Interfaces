@@ -40,10 +40,6 @@ class SecondViewController: UIViewController {
         let itemBehaviour = UIDynamicItemBehavior(items: [cat] + pitukas)
         itemBehaviour.elasticity = 0.4
         animator.addBehavior(itemBehaviour)
-        
-        
-        collision.collisionDelegate = self
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,12 +75,4 @@ extension SecondViewController: UIGestureRecognizerDelegate{
     }
 }
 
-extension SecondViewController: UICollisionBehaviorDelegate{
-    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
-        //let item2View = item2 as! UIView
-        //item2View.removeFromSuperview()
-        print("Cutou a pitukinha")
-    }
-    
-}
 
