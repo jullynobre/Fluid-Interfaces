@@ -24,16 +24,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cat.layer.cornerRadius = 75
-        
-//        for _ in 0...10{
-//            let pituka = UIView.init(frame: CGRect(x: CGFloat(arc4random_uniform(UInt32(view.frame.width))), y: CGFloat(arc4random_uniform(UInt32(view.frame.height))), width: 30.0, height: 30.0))
-//
-//            pituka.backgroundColor = UIColor.lightText
-//            pituka.layer.cornerRadius = 15
-//            view.addSubview(pituka)
-//            pitukas.append(pituka)
-//        }
-        
+  
         animator = UIDynamicAnimator(referenceView: view)
         collision = UICollisionBehavior(items: [cat] + pitukas)
         collision.translatesReferenceBoundsIntoBoundary = true
@@ -46,7 +37,6 @@ class FirstViewController: UIViewController {
         
         pinch.delegate = self
         rotation.delegate = self
-        collision.collisionDelegate = self
 
     }
     
@@ -132,13 +122,3 @@ extension FirstViewController: UIGestureRecognizerDelegate{
         return true
     }
 }
-
-extension FirstViewController: UICollisionBehaviorDelegate{
-    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
-        //let item2View = item2 as! UIView
-        //item2View.removeFromSuperview()
-        print("Cutou a pitukinha")
-    }
-    
-}
-
